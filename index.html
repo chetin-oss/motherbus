@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>흥부자 관광버스</title>
+<meta name="description" content="갈대밭을 달리는 관광버스에서 등산복 뽀글머리 아줌마들이 춤추는 3D 관광버스 메타공간과 '엄마 찾기' 미니게임">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gothic+A1:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app"></div>
+
+<div id="haze"></div>
+<div id="flash"></div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<div id="gBanner" hidden></div>
+<button id="gQuit" class="act" hidden>게임 그만하기<kbd>Esc</kbd></button>
+<div id="gResult" hidden>
+  <div class="gcard">
+    <span class="ticket">엄마 찾기 결과</span>
+    <h2 id="gTitle"></h2>
+    <p id="gMsg"></p>
+    <p class="stat" id="gStat"></p>
+    <div class="gbtns"><button class="go" id="gAgain">한 판 더</button><button class="act" id="gExit">버스로 돌아가기</button></div>
+  </div>
+</div>
+<div class="hud">
+  <div class="brand">흥부자 관광버스</div>
+  <div class="meta"><span id="sec" class="pill">탑승 대기</span><span id="bpm">128 BPM</span><span class="dots" id="dots"><i></i><i></i><i></i><i></i></span></div>
+</div>
+<div class="hint">WASD·방향키 걷기 · 드래그 시점 · 휠 확대 · V 1인칭</div>
+<button class="act game" id="bGame">엄마 찾기 게임</button>
+<div id="joy" aria-hidden="true"><div id="knob"></div></div>
+
+<div id="panel">
+  <button class="fold" id="fold" aria-expanded="true">접기</button>
+  <div class="pbody">
+    <div class="row"><span class="lbl">내 자리</span>
+      <div class="seg" id="modes">
+        <button id="bSit" data-mode="sit">가까운 좌석에 앉기</button>
+        <button id="bDance" data-mode="dance" class="on">서서 춤추기</button>
+      </div>
+      <button class="act" id="bView">1인칭 시점<kbd>V</kbd></button>
+      <span class="keyhint">앉기·일어나기 <kbd>E</kbd></span>
+    </div>
+    <div class="row"><span class="lbl">춤 동작</span>
+      <div class="seg" id="moves">
+        <button data-move="0" class="on"><b>1</b>손가락 하늘 찌르기</button>
+        <button data-move="1"><b>2</b>박수 치며 흔들기</button>
+        <button data-move="3"><b>3</b>만세 손 흔들기</button>
+      </div>
+    </div>
+    <div class="row"><span class="lbl">등산복</span><div class="sw" id="jackets"></div>
+      <span class="lbl" style="min-width:auto">뽀글머리</span><div class="sw" id="hairs"></div></div>
+    <div class="row">
+      <button class="heung" id="bHeung">흥 폭발!</button>
+      <div class="seg" id="styles"><button data-style="edm" class="on">EDM</button><button data-style="hh">관광 힙합</button></div>
+      <button class="act" id="bMusic">음악 끄기<kbd>M</kbd></button>
+      <label class="vol" for="vol">볼륨<input id="vol" type="range" min="0" max="100" value="70"></label>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="start">
+  <div class="card">
+    <span class="ticket">단풍놀이 전세버스 · 좌석 자유</span>
+    <h1>흥부자<br>관광버스</h1>
+    <p>등산복 곱게 차려입은 언니들이 벌써 통로에 나와 있어요. 좌석에 앉아서 박수만 쳐도 되고, 통로로 나가 같이 흔들어도 됩니다.</p>
+    <label class="nick" for="nick">닉네임<input id="nick" type="text" maxlength="10" placeholder="흥부자" autocomplete="nickname"></label>
+    <button class="go" id="go">탑승하기</button>
+    <p class="rule">흥 폭발은 통로에서 5분 동안 춤춰서 흥 게이지를 채워야 쓸 수 있어요.</p>
+    <span class="keys">WASD·방향키 걷기 · 드래그 시점 · E 앉기/일어나기 · V 1인칭 · 1·2·3 춤 · Space 흥 폭발</span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
